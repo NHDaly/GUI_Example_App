@@ -1,0 +1,3 @@
+[submodule "GUI_Showcase/gui"]
+	path = GUI_Showcase/gui
+	url = git@github.com:NHDaly/SDL-GUI-Library.git
