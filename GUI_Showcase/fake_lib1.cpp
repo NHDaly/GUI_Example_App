@@ -83,7 +83,10 @@ double age_from_dob(const std::string& date) {
     
     // Check for errors
     if (strlen(month) != 3) {
-        throw FakeLib1Error("Month too long! (Must be three chars)");
+        throw FakeLib1Error("Month name must be three chars!");
+    }
+    if (!isupper(month[0])) {
+        throw FakeLib1Error("Month name must start with capital letter!");
     }
     if (day > 31 || day <= 0) {
         throw FakeLib1Error("Day out of range! (Must be 1 <= day <= 31)");
