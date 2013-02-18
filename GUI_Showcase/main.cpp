@@ -45,6 +45,26 @@ GUIView* create_entry_form(const string &prompt_text, const string &answer_text,
                               Action action);
 GUIView* create_entry_form(const string &prompt_text, const string &answer_text);
 
+// A class to represent an entry form.
+// Simply an aggregation of subviews that lessen code repetition.
+class EntryForm : public GUITextView {
+public:
+    template <typename Action>
+    EntryForm(const string &prompt_text, const string &answer_text,
+              Action action);
+    
+    EntryForm(const string &prompt_text, const string &answer_text);
+
+    // Public data members so they can be accessed.
+    GUITextView *prompt;
+    GUITextView *name_display1;
+    GUITextButton *accept;
+    
+private:
+    template <typename Action>
+    void initialize(const string &prompt_text, const string &answer_text,
+                    Action action);
+};
 
 
 // User-Defined Error Struct
@@ -131,15 +151,15 @@ int main(int argc, char **argv) {
 
     
 // Create the Questions
-    view->attach_subview(create_entry_form("Please enter your name: ", "Your name is: "),
+    view->attach_subview(new EntryForm("Please enter your name: ", "Your name is: "),
                          DispPoint(15, 50));
 
-    view->attach_subview(create_entry_form("Date of birth (\"Mmm dd yyyy\"): ",
-                                           "Your age is: ", get_age),
+    view->attach_subview(new EntryForm("Date of birth (\"Mmm dd yyyy\"): ",
+                                       "Your age is: ", get_age),
                          DispPoint(15, 200));
 
-    view->attach_subview(create_entry_form("Please enter your age: ",
-                                           "Your date of birth is: ", get_birthdate),
+    view->attach_subview(new EntryForm("Please enter your age: ",
+                                       "Your date of birth is: ", get_birthdate),
                          DispPoint(15, 350));
 
 // Register Error Handlers
@@ -167,30 +187,40 @@ string get_birthdate(string age) {
     return date_of_birth(atof(age.c_str()));
 }
 
-GUIView* create_entry_form(const string &prompt_text, const string &answer_text) {
-    return create_entry_form<string(*)(const string&)>(prompt_text, answer_text, no_action);
-}
 string no_action(const string& str) { 
     return str; 
 }
 
 
+EntryForm::EntryForm(const string &prompt_text, const string &answer_text)
+: GUITextView(600, 200) 
+{
+    initialize<string(*)(const string&)>(prompt_text, answer_text, no_action);    
+}
+
 template <typename Action>
-GUIView* create_entry_form(const string &prompt_text, const string &answer_text,
-                              Action action) {
-    
-    GUIView *view = new GUITextView(600, 200);
+EntryForm::EntryForm(const string &prompt_text, const string &answer_text,
+                     Action action)
+: GUITextView(600, 200) 
+{
+    initialize(prompt_text, answer_text, action);
+}
+
+template <typename Action>
+void EntryForm::initialize(const string &prompt_text, const string &answer_text,
+                           Action action)
+{
     
     const int text_size = 20;
     
-// Add a Text Prompt asking for the user's name.
-    GUITextView *prompt = new GUITextView(300, 30);
+    // Add a Text Prompt asking for the user's name.
+    prompt = new GUITextView(300, 30);
     prompt->set_text(prompt_text);
     prompt->set_text_size(text_size);
     
-    view->attach_subview(prompt, DispPoint(50,25));
+    attach_subview(prompt, DispPoint(50,25));
     
-// Add a Text Box to enter a name
+    // Add a Text Box to enter a name
     GUIView *text_box_view = new GUIView(300,30);
     SDL_Color tb_bg = {0xee, 0xee, 0xee};
     text_box_view->draw_onto_self(GUIImage::create_filled(800,600,tb_bg), DispPoint());
@@ -198,33 +228,30 @@ GUIView* create_entry_form(const string &prompt_text, const string &answer_text,
     text_box->set_text_size(text_size);
     text_box_view->attach_subview(text_box, DispPoint());
     
-    view->attach_subview(text_box_view, DispPoint(50,50));
+    attach_subview(text_box_view, DispPoint(50,50));
     
-// Add a Text View that display's the user's age.
-    GUITextView *name_display1 = new GUITextView(300, 30);
+    // Add a Text View that display's the user's age.
+    name_display1 = new GUITextView(300, 30);
     name_display1->set_text(answer_text);
     name_display1->set_text_size(text_size);
     
-    view->attach_subview(name_display1, DispPoint(150,100));
+    attach_subview(name_display1, DispPoint(150,100));
     
     GUITextView *name_display2 = new GUITextView(300, 30);
     name_display2->set_text_size(text_size);
     
-    view->attach_subview(name_display2, DispPoint(100 + name_display1->get_w(), 100));
-        
-// Add a Button to accept the name
-    GUITextButton *accept = GUI_create_button(bind(&GUITextView::set_text, name_display2, 
-                                                         bind(action, 
-                                                              bind(&GUITextView::get_text, text_box))));
+    attach_subview(name_display2, DispPoint(100 + name_display1->get_w(), 100));
+    
+    // Add a Button to accept the name
+    accept = GUI_create_button(bind(&GUITextView::set_text, name_display2, 
+                                    bind(action, 
+                                         bind(&GUITextView::get_text, text_box))));
     accept->set_text("Go");
     
-    view->attach_subview(accept, DispPoint(100 + text_box_view->get_w(), 
-                                           50 + text_box_view->get_h()/2 - accept->get_h()/2));
+    attach_subview(accept, DispPoint(100 + text_box_view->get_w(), 
+                                     50 + text_box_view->get_h()/2 - accept->get_h()/2));
     
-    
-    return view;
 }
-
 
 template <typename T>
 string my_itoa(T i) {
