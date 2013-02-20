@@ -7,23 +7,28 @@ LFLAGS = -Wall -framework SDL -framework SDL_TTF -framework SDL_mixer -framework
 
 FRAMEWORK_FILES = gui/SDL.framework gui/SDL_ttf.framework gui/SDL_mixer.framework gui/SDL_image.framework
 
-# Put any application resources here. (ie images, sounds, etc.)
+# Put any user application resources here. (ie images, sounds, etc.)
 RESOURCES :=
 
 PROG = app
 
 PREXISTING_FRAMEWORKS =  $(wildcard /Library/Frameworks/SDL*.framework)
 
-GUI_LIB_O = gui/Compatibility.o gui/GUIApp.o gui/GUIAudio.o gui/GUIController.o gui/GUIImage.o gui/GUIImageCache.o gui/GUIImageView.o gui/GUILetter.o gui/GUIMsg.o gui/GUIScrollView.o gui/GUISpreadSheet.o gui/GUITextViews.o gui/GUITimer.o gui/GUIUtility.o gui/GUIValBox.o gui/GUIView.o gui/GUIWindow.o gui/GameDisplay.o gui/Letter.o gui/NewNewGUITextView.o 
+OBJS = main.o fake_lib1.o
 
-OBJS = main.o fake_lib1.o SDLMain.o
+default: gui_files settup $(PROG)
+	@echo "Done!"
+	@echo $(PROG)
 
-default: settup $(PROG)
+gui_files:
+	@echo "Making GUI files."
+	cd gui;	make
 
 settup: settup_resources settup_frameworks
 	
 
-settup_resources:
+settup_resources: 
+	@echo "\nCopying Resource files."
 	mkdir -p Resources
 	cp -R gui/GUIImages Resources
 	cp -R gui/GUIFonts Resources
@@ -31,17 +36,22 @@ ifneq ($(RESOURCES),)
 	cp -R $(RESOURCES) Resources
 endif
 
+
 settup_frameworks: $(FRAMEWORK_FILES)
+	@echo "\nChecking Frameworks.."
 ifneq ($(PREXISTING_FRAMEWORKS),)
-	echo "Already has Frameworks installed"
+	@echo "Frameworks are already installed"
 else
-	echo "Installing Frameworks to /Library/Frameworks"
-	cp -R -n $(FRAMEWORK_FILES) /Library/Frameworks/
+	@echo "Installing Frameworks to /Library/Frameworks"
+	cp -R -n $(FRAMEWORK_FILES) /Library/Frameworks
 endif
+	@echo ""
 
 
-$(PROG): $(GUI_LIB_O) $(OBJS)
-	$(LD) $(LFLAGS) $(GUI_LIB_O) $(OBJS) -o $(PROG)
+
+$(PROG):  $(wildcard gui/*.o) $(OBJS)
+	@echo "\nBuilding Project."
+	$(LD) $(LFLAGS) $(wildcard gui/*.o) $(OBJS) -o $(PROG)
 
 main.o: main.cpp
 	$(CC) $(CFLAGS) main.cpp
@@ -49,11 +59,10 @@ main.o: main.cpp
 fake_lib1.o: fake_lib1.cpp
 	$(CC) $(CFLAGS) fake_lib1.cpp
 
-SDLMain.o: gui/SDLMain.m
-	gcc $(CFLAGS) gui/SDLMain.m
 
 clean:
 	rm -f *.o
+	rm -f gui/*.o
 clean_full:
 	rm -f *.o $(PROG)
 	rm -f gui/*.o
