@@ -10,7 +10,7 @@
 #include "GUIWindow.h"
 #include "GUIView.h"
 #include "GUIButton.h"
-#include "GUITextBox.h"
+#include "GUITextViews.h"
 
 // This would be a library where the user doesn't have access to the code.
 #include "fake_lib1.h" 
@@ -269,7 +269,7 @@ void EntryForm::initialize(const string &prompt_text, const string &answer_text,
     // Add a Button to accept input and display it in result.
     accept = GUI_create_button(bind(&GUITextView::set_text, name_display2, 
                                     bind(action, 
-                                         bind(&GUITextView::get_text, text_box))));
+                                         bind(&GUITextBox::get_text, text_box))));
     accept->set_text("Go");
 
     attach_subview(accept, DispPoint(100 + text_box_view->get_w(), 
