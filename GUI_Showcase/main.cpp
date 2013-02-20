@@ -80,19 +80,26 @@ struct MyError {
 
 
 // A View Class to display Error Messages until clicked.
-class ErrorMsg : public GUIImageView {
+class ErrorMsg : public GUIView {
 public:
     template <typename Error_t>
     ErrorMsg(const Error_t& e)
-    :GUIImageView(GUIImage::create_filled(450, 75, bg))
+    :GUIView(450, 75)
     { 
+        const SDL_Color bg = {0xbb, 0xbb, 0xbb};
+        fill_with_color(bg);
+        
         GUITextView *msg = new GUITextView(425, 50);
         attach_subview(msg, DispPoint(12,20));
         msg->set_text(get_msg(e));
         msg->set_text_size(18);
+
+        GUITextView *dismiss_text = new GUITextView(425, 25);
+        attach_subview(dismiss_text, DispPoint(140,50));
+        dismiss_text->set_text("(Click this box to dismiss)");
+        dismiss_text->set_text_size(10);
     }
 private:
-    static SDL_Color bg;
     
     virtual bool handle_mouse_down(DispPoint coord) {
         get_parent()->remove_subview(this);
@@ -100,7 +107,6 @@ private:
         return true;
     }
 };
-SDL_Color ErrorMsg::bg = {0xbb, 0xbb, 0xbb};
 
 
 // Used to make the above struct generic.
@@ -208,16 +214,19 @@ string no_action(const string& str) {
  * Entry Form Implementation
  ****************************/
 
+const int entry_w_c = 650;
+const int entry_h_c = 200;
+
 // Constructors simply call initialize
 EntryForm::EntryForm(const string &prompt_text, const string &answer_text)
-: GUITextView(600, 200) 
+: GUITextView(entry_w_c, entry_h_c) 
 {
     initialize<string(*)(const string&)>(prompt_text, answer_text, no_action);    
 }
 template <typename Action>
 EntryForm::EntryForm(const string &prompt_text, const string &answer_text,
                      Action action)
-: GUITextView(600, 200) 
+: GUITextView(entry_w_c, entry_h_c) 
 {
     initialize(prompt_text, answer_text, action);
 }
@@ -231,9 +240,12 @@ void EntryForm::initialize(const string &prompt_text, const string &answer_text,
 {
     
     const int text_size = 20;
+    const int field_w = 350;
+    const int field_h = 30;
+
     
     // Add a Text Prompt to show prompt_text.
-    prompt = new GUITextView(300, 30);
+    prompt = new GUITextView(field_w, field_h);
     prompt->set_text(prompt_text);
     prompt->set_text_size(text_size);
     
@@ -241,18 +253,14 @@ void EntryForm::initialize(const string &prompt_text, const string &answer_text,
     
     
     // Add a Text Box to enter a string
-    GUIView *text_box_view = new GUIView(300,30);
-    SDL_Color tb_bg = {0xee, 0xee, 0xee};
-    text_box_view->fill_with_color(tb_bg);
-    GUITextBox *text_box = new GUITextBox(300,30);
+    GUITextBox *text_box = new GUITextBox(field_w,field_h);
     text_box->set_text_size(text_size);
-    text_box_view->attach_subview(text_box, DispPoint());
     
-    attach_subview(text_box_view, DispPoint(50,50));
+    attach_subview(text_box, DispPoint(50,50));
     
     
     // Add a Text View to show answer_text.
-    name_display1 = new GUITextView(300, 30);
+    name_display1 = new GUITextView(field_w, field_h);
     name_display1->set_text(answer_text);
     name_display1->set_text_size(text_size);
     
@@ -260,7 +268,7 @@ void EntryForm::initialize(const string &prompt_text, const string &answer_text,
     
     
     // Add a Text View to display result.
-    GUITextView *name_display2 = new GUITextView(300, 30);
+    GUITextView *name_display2 = new GUITextView(field_w, field_h);
     name_display2->set_text_size(text_size);
     
     attach_subview(name_display2, DispPoint(100 + name_display1->get_w(), 100));
@@ -272,8 +280,8 @@ void EntryForm::initialize(const string &prompt_text, const string &answer_text,
                                          bind(&GUITextBox::get_text, text_box))));
     accept->set_text("Go");
 
-    attach_subview(accept, DispPoint(100 + text_box_view->get_w(), 
-                                     50 + text_box_view->get_h()/2 - accept->get_h()/2));
+    attach_subview(accept, DispPoint(100 + text_box->get_w(), 
+                                     50 + text_box->get_h()/2 - accept->get_h()/2));
     
 }
 

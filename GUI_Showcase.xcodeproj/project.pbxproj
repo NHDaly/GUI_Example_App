@@ -21,7 +21,7 @@
 		235F4C4D16B8F8FD000B145C /* GUILetter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 235F4C2916B8F8FD000B145C /* GUILetter.cpp */; };
 		235F4C4E16B8F8FD000B145C /* GUIMsg.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 235F4C2B16B8F8FD000B145C /* GUIMsg.cpp */; };
 		235F4C4F16B8F8FD000B145C /* GUIScrollView.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 235F4C2D16B8F8FD000B145C /* GUIScrollView.cpp */; };
-		235F4C5016B8F8FD000B145C /* GUITextBox.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 235F4C2F16B8F8FD000B145C /* GUITextBox.cpp */; };
+		235F4C5016B8F8FD000B145C /* GUITextViews.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 235F4C2F16B8F8FD000B145C /* GUITextViews.cpp */; };
 		235F4C5116B8F8FD000B145C /* GUITimer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 235F4C3116B8F8FD000B145C /* GUITimer.cpp */; };
 		235F4C5216B8F8FD000B145C /* GUIUtility.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 235F4C3316B8F8FD000B145C /* GUIUtility.cpp */; };
 		235F4C5316B8F8FD000B145C /* GUIValBox.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 235F4C3516B8F8FD000B145C /* GUIValBox.cpp */; };
@@ -39,6 +39,7 @@
 		23C6156516D4663B0084EB2E /* SDL_mixer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23C6156316D4663B0084EB2E /* SDL_mixer.framework */; };
 		23C6156616D466410084EB2E /* SDL_image.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 23C6156216D4663B0084EB2E /* SDL_image.framework */; };
 		23C6156716D466410084EB2E /* SDL_mixer.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 23C6156316D4663B0084EB2E /* SDL_mixer.framework */; };
+		23C6156B16D487240084EB2E /* GUISpreadSheet.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 23C6156A16D487230084EB2E /* GUISpreadSheet.cpp */; };
 		23E37D2D16A75BD4006BBEB1 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23E37D2C16A75BD4006BBEB1 /* Cocoa.framework */; };
 		23E37D3716A75BD4006BBEB1 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 23E37D3516A75BD4006BBEB1 /* InfoPlist.strings */; };
 /* End PBXBuildFile section */
@@ -89,8 +90,8 @@
 		235F4C2C16B8F8FD000B145C /* GUIMsg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GUIMsg.h; sourceTree = "<group>"; };
 		235F4C2D16B8F8FD000B145C /* GUIScrollView.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GUIScrollView.cpp; sourceTree = "<group>"; };
 		235F4C2E16B8F8FD000B145C /* GUIScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GUIScrollView.h; sourceTree = "<group>"; };
-		235F4C2F16B8F8FD000B145C /* GUITextBox.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GUITextBox.cpp; sourceTree = "<group>"; };
-		235F4C3016B8F8FD000B145C /* GUITextBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GUITextBox.h; sourceTree = "<group>"; };
+		235F4C2F16B8F8FD000B145C /* GUITextViews.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GUITextViews.cpp; sourceTree = "<group>"; };
+		235F4C3016B8F8FD000B145C /* GUITextViews.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GUITextViews.h; sourceTree = "<group>"; };
 		235F4C3116B8F8FD000B145C /* GUITimer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GUITimer.cpp; sourceTree = "<group>"; };
 		235F4C3216B8F8FD000B145C /* GUITimer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GUITimer.h; sourceTree = "<group>"; };
 		235F4C3316B8F8FD000B145C /* GUIUtility.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GUIUtility.cpp; sourceTree = "<group>"; };
@@ -114,6 +115,8 @@
 		23C6155D16D465E50084EB2E /* SDL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL.framework; path = GUI_Showcase/gui/SDL.framework; sourceTree = "<group>"; };
 		23C6156216D4663B0084EB2E /* SDL_image.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL_image.framework; path = GUI_Showcase/gui/SDL_image.framework; sourceTree = "<group>"; };
 		23C6156316D4663B0084EB2E /* SDL_mixer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL_mixer.framework; path = GUI_Showcase/gui/SDL_mixer.framework; sourceTree = "<group>"; };
+		23C6156916D4868D0084EB2E /* GUISpreadsheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GUISpreadsheet.h; sourceTree = "<group>"; };
+		23C6156A16D487230084EB2E /* GUISpreadSheet.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GUISpreadSheet.cpp; sourceTree = "<group>"; };
 		23E37D2816A75BD4006BBEB1 /* GUI_Showcase.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GUI_Showcase.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		23E37D2C16A75BD4006BBEB1 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		23E37D3416A75BD4006BBEB1 /* GUI_Showcase-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GUI_Showcase-Info.plist"; sourceTree = "<group>"; };
@@ -220,14 +223,16 @@
 				235F4C2C16B8F8FD000B145C /* GUIMsg.h */,
 				235F4C2D16B8F8FD000B145C /* GUIScrollView.cpp */,
 				235F4C2E16B8F8FD000B145C /* GUIScrollView.h */,
-				235F4C2F16B8F8FD000B145C /* GUITextBox.cpp */,
-				235F4C3016B8F8FD000B145C /* GUITextBox.h */,
+				235F4C2F16B8F8FD000B145C /* GUITextViews.cpp */,
+				235F4C3016B8F8FD000B145C /* GUITextViews.h */,
 				235F4C3116B8F8FD000B145C /* GUITimer.cpp */,
 				235F4C3216B8F8FD000B145C /* GUITimer.h */,
 				235F4C3316B8F8FD000B145C /* GUIUtility.cpp */,
 				235F4C3416B8F8FD000B145C /* GUIUtility.h */,
 				235F4C3516B8F8FD000B145C /* GUIValBox.cpp */,
 				235F4C3616B8F8FD000B145C /* GUIValBox.h */,
+				23C6156A16D487230084EB2E /* GUISpreadSheet.cpp */,
+				23C6156916D4868D0084EB2E /* GUISpreadsheet.h */,
 				235F4C3716B8F8FD000B145C /* GUIView.cpp */,
 				235F4C3816B8F8FD000B145C /* GUIView.h */,
 				235F4C3916B8F8FD000B145C /* GUIWindow.cpp */,
@@ -321,7 +326,7 @@
 				235F4C4D16B8F8FD000B145C /* GUILetter.cpp in Sources */,
 				235F4C4E16B8F8FD000B145C /* GUIMsg.cpp in Sources */,
 				235F4C4F16B8F8FD000B145C /* GUIScrollView.cpp in Sources */,
-				235F4C5016B8F8FD000B145C /* GUITextBox.cpp in Sources */,
+				235F4C5016B8F8FD000B145C /* GUITextViews.cpp in Sources */,
 				235F4C5116B8F8FD000B145C /* GUITimer.cpp in Sources */,
 				235F4C5216B8F8FD000B145C /* GUIUtility.cpp in Sources */,
 				235F4C5316B8F8FD000B145C /* GUIValBox.cpp in Sources */,
@@ -331,6 +336,7 @@
 				235F4C5716B8F8FD000B145C /* NewNewGUITextView.cpp in Sources */,
 				2384ED7D16C77985009220F1 /* SDLMain.m in Sources */,
 				2384ED7E16C77A63009220F1 /* main.cpp in Sources */,
+				23C6156B16D487240084EB2E /* GUISpreadSheet.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
