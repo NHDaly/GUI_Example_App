@@ -31,16 +31,16 @@
 		235F4C5716B8F8FD000B145C /* NewNewGUITextView.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 235F4C3E16B8F8FD000B145C /* NewNewGUITextView.cpp */; };
 		2384ED7D16C77985009220F1 /* SDLMain.m in Sources */ = {isa = PBXBuildFile; fileRef = 235F4C4216B8F8FD000B145C /* SDLMain.m */; };
 		2384ED7E16C77A63009220F1 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 23E37DAC16A75DDC006BBEB1 /* main.cpp */; };
+		23C6155E16D465E50084EB2E /* SDL_ttf.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23C6155C16D465E50084EB2E /* SDL_ttf.framework */; };
+		23C6155F16D465E50084EB2E /* SDL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23C6155D16D465E50084EB2E /* SDL.framework */; };
+		23C6156016D465F70084EB2E /* SDL_ttf.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 23C6155C16D465E50084EB2E /* SDL_ttf.framework */; };
+		23C6156116D465F70084EB2E /* SDL.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 23C6155D16D465E50084EB2E /* SDL.framework */; };
+		23C6156416D4663B0084EB2E /* SDL_image.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23C6156216D4663B0084EB2E /* SDL_image.framework */; };
+		23C6156516D4663B0084EB2E /* SDL_mixer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23C6156316D4663B0084EB2E /* SDL_mixer.framework */; };
+		23C6156616D466410084EB2E /* SDL_image.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 23C6156216D4663B0084EB2E /* SDL_image.framework */; };
+		23C6156716D466410084EB2E /* SDL_mixer.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 23C6156316D4663B0084EB2E /* SDL_mixer.framework */; };
 		23E37D2D16A75BD4006BBEB1 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23E37D2C16A75BD4006BBEB1 /* Cocoa.framework */; };
 		23E37D3716A75BD4006BBEB1 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 23E37D3516A75BD4006BBEB1 /* InfoPlist.strings */; };
-		23E37DA816A75D5F006BBEB1 /* SDL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23E37DA416A75D5F006BBEB1 /* SDL.framework */; };
-		23E37DA916A75D5F006BBEB1 /* SDL_image.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23E37DA516A75D5F006BBEB1 /* SDL_image.framework */; };
-		23E37DAA16A75D5F006BBEB1 /* SDL_mixer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23E37DA616A75D5F006BBEB1 /* SDL_mixer.framework */; };
-		23E37DAB16A75D5F006BBEB1 /* SDL_ttf.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23E37DA716A75D5F006BBEB1 /* SDL_ttf.framework */; };
-		23E37DAF16A75EC4006BBEB1 /* SDL.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 23E37DA416A75D5F006BBEB1 /* SDL.framework */; };
-		23E37DB016A75EC4006BBEB1 /* SDL_image.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 23E37DA516A75D5F006BBEB1 /* SDL_image.framework */; };
-		23E37DB116A75EC4006BBEB1 /* SDL_mixer.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 23E37DA616A75D5F006BBEB1 /* SDL_mixer.framework */; };
-		23E37DB216A75EC4006BBEB1 /* SDL_ttf.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 23E37DA716A75D5F006BBEB1 /* SDL_ttf.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -50,10 +50,10 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				23E37DAF16A75EC4006BBEB1 /* SDL.framework in CopyFiles */,
-				23E37DB016A75EC4006BBEB1 /* SDL_image.framework in CopyFiles */,
-				23E37DB116A75EC4006BBEB1 /* SDL_mixer.framework in CopyFiles */,
-				23E37DB216A75EC4006BBEB1 /* SDL_ttf.framework in CopyFiles */,
+				23C6156616D466410084EB2E /* SDL_image.framework in CopyFiles */,
+				23C6156716D466410084EB2E /* SDL_mixer.framework in CopyFiles */,
+				23C6156016D465F70084EB2E /* SDL_ttf.framework in CopyFiles */,
+				23C6156116D465F70084EB2E /* SDL.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -110,15 +110,15 @@
 		235F4C4116B8F8FD000B145C /* SDLMain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDLMain.h; sourceTree = "<group>"; };
 		235F4C4216B8F8FD000B145C /* SDLMain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDLMain.m; sourceTree = "<group>"; };
 		23C6151616D2D15F0084EB2E /* GUIErrorHandling_Impl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GUIErrorHandling_Impl.h; sourceTree = "<group>"; };
+		23C6155C16D465E50084EB2E /* SDL_ttf.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL_ttf.framework; path = GUI_Showcase/gui/SDL_ttf.framework; sourceTree = "<group>"; };
+		23C6155D16D465E50084EB2E /* SDL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL.framework; path = GUI_Showcase/gui/SDL.framework; sourceTree = "<group>"; };
+		23C6156216D4663B0084EB2E /* SDL_image.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL_image.framework; path = GUI_Showcase/gui/SDL_image.framework; sourceTree = "<group>"; };
+		23C6156316D4663B0084EB2E /* SDL_mixer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL_mixer.framework; path = GUI_Showcase/gui/SDL_mixer.framework; sourceTree = "<group>"; };
 		23E37D2816A75BD4006BBEB1 /* GUI_Showcase.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GUI_Showcase.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		23E37D2C16A75BD4006BBEB1 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		23E37D3416A75BD4006BBEB1 /* GUI_Showcase-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GUI_Showcase-Info.plist"; sourceTree = "<group>"; };
 		23E37D3616A75BD4006BBEB1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		23E37D3A16A75BD4006BBEB1 /* GUI_Showcase-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GUI_Showcase-Prefix.pch"; sourceTree = "<group>"; };
-		23E37DA416A75D5F006BBEB1 /* SDL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL.framework; path = Library/Frameworks/SDL.framework; sourceTree = SDKROOT; };
-		23E37DA516A75D5F006BBEB1 /* SDL_image.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL_image.framework; path = Library/Frameworks/SDL_image.framework; sourceTree = SDKROOT; };
-		23E37DA616A75D5F006BBEB1 /* SDL_mixer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL_mixer.framework; path = Library/Frameworks/SDL_mixer.framework; sourceTree = SDKROOT; };
-		23E37DA716A75D5F006BBEB1 /* SDL_ttf.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL_ttf.framework; path = Library/Frameworks/SDL_ttf.framework; sourceTree = SDKROOT; };
 		23E37DAC16A75DDC006BBEB1 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -127,11 +127,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				23E37DA816A75D5F006BBEB1 /* SDL.framework in Frameworks */,
-				23E37DA916A75D5F006BBEB1 /* SDL_image.framework in Frameworks */,
-				23E37DAA16A75D5F006BBEB1 /* SDL_mixer.framework in Frameworks */,
-				23E37DAB16A75D5F006BBEB1 /* SDL_ttf.framework in Frameworks */,
 				23E37D2D16A75BD4006BBEB1 /* Cocoa.framework in Frameworks */,
+				23C6155E16D465E50084EB2E /* SDL_ttf.framework in Frameworks */,
+				23C6155F16D465E50084EB2E /* SDL.framework in Frameworks */,
+				23C6156416D4663B0084EB2E /* SDL_image.framework in Frameworks */,
+				23C6156516D4663B0084EB2E /* SDL_mixer.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -158,10 +158,10 @@
 		23E37D2B16A75BD4006BBEB1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				23E37DA416A75D5F006BBEB1 /* SDL.framework */,
-				23E37DA516A75D5F006BBEB1 /* SDL_image.framework */,
-				23E37DA616A75D5F006BBEB1 /* SDL_mixer.framework */,
-				23E37DA716A75D5F006BBEB1 /* SDL_ttf.framework */,
+				23C6155C16D465E50084EB2E /* SDL_ttf.framework */,
+				23C6155D16D465E50084EB2E /* SDL.framework */,
+				23C6156216D4663B0084EB2E /* SDL_image.framework */,
+				23C6156316D4663B0084EB2E /* SDL_mixer.framework */,
 				23E37D2C16A75BD4006BBEB1 /* Cocoa.framework */,
 			);
 			name = Frameworks;
@@ -398,6 +398,10 @@
 		23E37D4716A75BD4006BBEB1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/GUI_Showcase/gui\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "GUI_Showcase/GUI_Showcase-Prefix.pch";
 				INFOPLIST_FILE = "GUI_Showcase/GUI_Showcase-Info.plist";
@@ -409,6 +413,10 @@
 		23E37D4816A75BD4006BBEB1 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/GUI_Showcase/gui\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "GUI_Showcase/GUI_Showcase-Prefix.pch";
 				INFOPLIST_FILE = "GUI_Showcase/GUI_Showcase-Info.plist";
