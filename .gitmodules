@@ -1,4 +1,4 @@
 [submodule "GUI_Showcase/gui"]
 	path = GUI_Showcase/gui
-	url = https://github.com/NHDaly/GUI_Example_App.git
+	url = https://github.com/NHDaly/SDL-GUI-Library.git
 
