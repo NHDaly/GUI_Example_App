@@ -7,13 +7,13 @@
 //
 
 #include "GUIApp.h"
-#include "Compatibility.h"
 #include "GUIWindow.h"
+#include "GUIView.h"
 #include "GUIButton.h"
 #include "GUITextBox.h"
 
-// Libraries!
-#include "fake_lib1.h"
+// This would be a library where the user doesn't have access to the code.
+#include "fake_lib1.h" 
 
 #include <iostream>
 #include <cctype>
@@ -45,6 +45,11 @@ GUIView* create_entry_form(const string &prompt_text, const string &answer_text,
                               Action action);
 GUIView* create_entry_form(const string &prompt_text, const string &answer_text);
 
+
+/********************************
+ * Helper Class Declarations
+ ********************************/
+
 // A class to represent an entry form.
 // Simply an aggregation of subviews that lessen code repetition.
 class EntryForm : public GUITextView {
@@ -73,21 +78,17 @@ struct MyError {
     MyError(const std::string &msg_) : msg(msg_) { }
 };
 
-#define CreateMyError(x) MyError(std::string(x) + \
-                         "                  File: " + my_itoa(__FILE__) + \
-                         "  Line: " + my_itoa(__LINE__))
-
 
 // A View Class to display Error Messages until clicked.
 class ErrorMsg : public GUIImageView {
 public:
     template <typename Error_t>
     ErrorMsg(const Error_t& e)
-    :GUIImageView(GUIImage::create_filled(400, 150, bg))
+    :GUIImageView(GUIImage::create_filled(450, 75, bg))
     { 
-        GUITextView *msg = new GUITextView(350, 130);
-        attach_subview(msg, DispPoint(25,10));
-        msg->set_text("Error: " + get_msg(e));
+        GUITextView *msg = new GUITextView(425, 50);
+        attach_subview(msg, DispPoint(12,20));
+        msg->set_text(get_msg(e));
         msg->set_text_size(18);
     }
 private:
@@ -104,13 +105,13 @@ SDL_Color ErrorMsg::bg = {0xbb, 0xbb, 0xbb};
 
 // Used to make the above struct generic.
 string get_msg(const MyError& e) {
-    return e.msg;
+    return "Error: " + e.msg;
 }
 string get_msg(const FakeLib1Error& e) {
-    return e.error_msg;
+    return "Lib1 Error: " + e.error_msg;
 }
 string get_msg(const std::exception& e) {
-    return e.what();
+    return "Error: " + string(e.what());
 }
 
 // A functor to display an error message onto a view
@@ -132,7 +133,10 @@ private:
 };
 
 
-// Main Program!
+/****************************
+ * Main!
+ ****************************/
+
 // Create a few question forms, register error handlers, and run
 // The main exciting thing here is register_erorr_handlers, because
 // it allows you to use errors from a library whose code you cannot change.
@@ -163,8 +167,10 @@ int main(int argc, char **argv) {
                          DispPoint(15, 350));
 
 // Register Error Handlers
-    GUIApp::get()->register_error_handler<FakeLib1Error>(Display_Error(view));
-    GUIApp::get()->register_error_handler<MyError>(Display_Error(view));
+    // In this case, both types of errors use the same Error Handler,
+    // but that might not always be the case.
+    GUIApp::get()->register_exception_handler<FakeLib1Error>(Display_Error(view));
+    GUIApp::get()->register_exception_handler<MyError>(Display_Error(view));
 
 // Run!
     GUIApp::get()->run(&window);
@@ -172,32 +178,42 @@ int main(int argc, char **argv) {
     return 0;
 };
 
-
+// Using FakeLib1 return age as a string from a birthdate.
 string get_age(string birthdate) {
+    if (birthdate.size() != 11) {
+        throw MyError("Entry must follow format exactly!");
+    }
     return my_itoa(age_from_dob(birthdate));
 }
+
+// Using FakeLib1 return a birthdate as a string from age.
 string get_birthdate(string age) {
     
     for (int i = 0; i < age.length(); i++) {
         if (!(isdigit(age[i]) || age[i] == '.')) {
-            throw CreateMyError("Age must be a number!");
+            throw MyError("Age must be a number!");
         }
     }
     
     return date_of_birth(atof(age.c_str()));
 }
 
+// simply return the string as is.
 string no_action(const string& str) { 
     return str; 
 }
 
 
+/****************************
+ * Entry Form Implementation
+ ****************************/
+
+// Constructors simply call initialize
 EntryForm::EntryForm(const string &prompt_text, const string &answer_text)
 : GUITextView(600, 200) 
 {
     initialize<string(*)(const string&)>(prompt_text, answer_text, no_action);    
 }
-
 template <typename Action>
 EntryForm::EntryForm(const string &prompt_text, const string &answer_text,
                      Action action)
@@ -206,6 +222,9 @@ EntryForm::EntryForm(const string &prompt_text, const string &answer_text,
     initialize(prompt_text, answer_text, action);
 }
 
+// Attaches all of the correct subviews (prompt text, entry form, answer text,
+//  and Go button) and sets the button to the specified action.
+//  the form's text is passed to the action on button press.
 template <typename Action>
 void EntryForm::initialize(const string &prompt_text, const string &answer_text,
                            Action action)
@@ -213,46 +232,52 @@ void EntryForm::initialize(const string &prompt_text, const string &answer_text,
     
     const int text_size = 20;
     
-    // Add a Text Prompt asking for the user's name.
+    // Add a Text Prompt to show prompt_text.
     prompt = new GUITextView(300, 30);
     prompt->set_text(prompt_text);
     prompt->set_text_size(text_size);
     
     attach_subview(prompt, DispPoint(50,25));
     
-    // Add a Text Box to enter a name
+    
+    // Add a Text Box to enter a string
     GUIView *text_box_view = new GUIView(300,30);
     SDL_Color tb_bg = {0xee, 0xee, 0xee};
-    text_box_view->draw_onto_self(GUIImage::create_filled(800,600,tb_bg), DispPoint());
+    text_box_view->fill_with_color(tb_bg);
     GUITextBox *text_box = new GUITextBox(300,30);
     text_box->set_text_size(text_size);
     text_box_view->attach_subview(text_box, DispPoint());
     
     attach_subview(text_box_view, DispPoint(50,50));
     
-    // Add a Text View that display's the user's age.
+    
+    // Add a Text View to show answer_text.
     name_display1 = new GUITextView(300, 30);
     name_display1->set_text(answer_text);
     name_display1->set_text_size(text_size);
     
     attach_subview(name_display1, DispPoint(150,100));
     
+    
+    // Add a Text View to display result.
     GUITextView *name_display2 = new GUITextView(300, 30);
     name_display2->set_text_size(text_size);
     
     attach_subview(name_display2, DispPoint(100 + name_display1->get_w(), 100));
     
-    // Add a Button to accept the name
+    
+    // Add a Button to accept input and display it in result.
     accept = GUI_create_button(bind(&GUITextView::set_text, name_display2, 
                                     bind(action, 
                                          bind(&GUITextView::get_text, text_box))));
     accept->set_text("Go");
-    
+
     attach_subview(accept, DispPoint(100 + text_box_view->get_w(), 
                                      50 + text_box_view->get_h()/2 - accept->get_h()/2));
     
 }
 
+// Return a string from any value. (Uses stringstream)
 template <typename T>
 string my_itoa(T i) {
     stringstream ss;

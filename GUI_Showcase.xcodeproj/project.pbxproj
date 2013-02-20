@@ -109,7 +109,7 @@
 		235F4C4016B8F8FD000B145C /* Ptr_config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Ptr_config.h; sourceTree = "<group>"; };
 		235F4C4116B8F8FD000B145C /* SDLMain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDLMain.h; sourceTree = "<group>"; };
 		235F4C4216B8F8FD000B145C /* SDLMain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDLMain.m; sourceTree = "<group>"; };
-		23C6151616D2D15F0084EB2E /* GUIError_Handling_Impl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GUIError_Handling_Impl.h; sourceTree = "<group>"; };
+		23C6151616D2D15F0084EB2E /* GUIErrorHandling_Impl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GUIErrorHandling_Impl.h; sourceTree = "<group>"; };
 		23E37D2816A75BD4006BBEB1 /* GUI_Showcase.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GUI_Showcase.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		23E37D2C16A75BD4006BBEB1 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		23E37D3416A75BD4006BBEB1 /* GUI_Showcase-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GUI_Showcase-Info.plist"; sourceTree = "<group>"; };
@@ -205,7 +205,7 @@
 				235F4C1E16B8F8FD000B145C /* GUIController.h */,
 				235F4C1F16B8F8FD000B145C /* GUIErrorHandling_old.h */,
 				235F4C2016B8F8FD000B145C /* GUIErrorHandling.h */,
-				23C6151616D2D15F0084EB2E /* GUIError_Handling_Impl.h */,
+				23C6151616D2D15F0084EB2E /* GUIErrorHandling_Impl.h */,
 				235F4C2116B8F8FD000B145C /* GUIFonts */,
 				235F4C2216B8F8FD000B145C /* GUIImage.cpp */,
 				235F4C2316B8F8FD000B145C /* GUIImage.h */,
