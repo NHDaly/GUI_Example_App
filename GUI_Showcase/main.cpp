@@ -149,7 +149,7 @@ int main(int argc, char **argv) {
 // **** Create the Main View ***********
     SDL_Color bg = {0xcc, 0xcc, 0xcc};
     GUIView *view = new GUIView(800,600);
-    view->draw_onto_self(GUIImage::create_filled(800, 600, bg), DispPoint());
+    view->fill_with_color(bg);
     
     window.attach_subview(view, DispPoint(0,0));
 
