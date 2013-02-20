@@ -6,11 +6,11 @@
 //  Copyright (c) 2013 Lions Entertainment. All rights reserved.
 //
 
-#include "GUIApp.h"
-#include "GUIWindow.h"
-#include "GUIView.h"
-#include "GUIButton.h"
-#include "GUITextViews.h"
+#include "gui/GUIApp.h"
+#include "gui/GUIWindow.h"
+#include "gui/GUIView.h"
+#include "gui/GUIButton.h"
+#include "gui/GUITextViews.h"
 
 // This would be a library where the user doesn't have access to the code.
 #include "fake_lib1.h" 
