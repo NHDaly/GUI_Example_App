@@ -62,7 +62,6 @@
 /* Begin PBXFileReference section */
 		2337F19816AF5800001C4F30 /* fake_lib1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fake_lib1.h; sourceTree = "<group>"; };
 		2337F19916AF5874001C4F30 /* fake_lib1.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = fake_lib1.cpp; sourceTree = "<group>"; };
-		2337F19B16AF78E9001C4F30 /* bind_example.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = bind_example.cpp; sourceTree = "<group>"; };
 		235F4C1416B8F8FD000B145C /* Compatibility.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Compatibility.cpp; sourceTree = "<group>"; };
 		235F4C1516B8F8FD000B145C /* Compatibility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Compatibility.h; sourceTree = "<group>"; };
 		235F4C1616B8F8FD000B145C /* GameDisplay.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameDisplay.cpp; sourceTree = "<group>"; };
@@ -172,7 +171,6 @@
 			isa = PBXGroup;
 			children = (
 				23E37DAC16A75DDC006BBEB1 /* main.cpp */,
-				2337F19B16AF78E9001C4F30 /* bind_example.cpp */,
 				2337F19816AF5800001C4F30 /* fake_lib1.h */,
 				2337F19916AF5874001C4F30 /* fake_lib1.cpp */,
 				23E37D3316A75BD4006BBEB1 /* Supporting Files */,
