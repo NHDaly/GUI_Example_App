@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		2337F19A16AF5874001C4F30 /* fake_lib1.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2337F19916AF5874001C4F30 /* fake_lib1.cpp */; };
+		234218F116D5F6CD0092FE14 /* SDL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 234218F016D5F6CD0092FE14 /* SDL.framework */; };
+		234218FB16D5FBE60092FE14 /* SDL.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 234218F016D5F6CD0092FE14 /* SDL.framework */; };
 		235F4C4316B8F8FD000B145C /* Compatibility.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 235F4C1416B8F8FD000B145C /* Compatibility.cpp */; };
 		235F4C4416B8F8FD000B145C /* GameDisplay.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 235F4C1616B8F8FD000B145C /* GameDisplay.cpp */; };
 		235F4C4516B8F8FD000B145C /* GUIApp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 235F4C1816B8F8FD000B145C /* GUIApp.cpp */; };
@@ -32,9 +34,7 @@
 		2384ED7D16C77985009220F1 /* SDLMain.m in Sources */ = {isa = PBXBuildFile; fileRef = 235F4C4216B8F8FD000B145C /* SDLMain.m */; };
 		2384ED7E16C77A63009220F1 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 23E37DAC16A75DDC006BBEB1 /* main.cpp */; };
 		23C6155E16D465E50084EB2E /* SDL_ttf.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23C6155C16D465E50084EB2E /* SDL_ttf.framework */; };
-		23C6155F16D465E50084EB2E /* SDL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23C6155D16D465E50084EB2E /* SDL.framework */; };
 		23C6156016D465F70084EB2E /* SDL_ttf.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 23C6155C16D465E50084EB2E /* SDL_ttf.framework */; };
-		23C6156116D465F70084EB2E /* SDL.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 23C6155D16D465E50084EB2E /* SDL.framework */; };
 		23C6156416D4663B0084EB2E /* SDL_image.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23C6156216D4663B0084EB2E /* SDL_image.framework */; };
 		23C6156516D4663B0084EB2E /* SDL_mixer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23C6156316D4663B0084EB2E /* SDL_mixer.framework */; };
 		23C6156616D466410084EB2E /* SDL_image.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 23C6156216D4663B0084EB2E /* SDL_image.framework */; };
@@ -53,8 +53,8 @@
 			files = (
 				23C6156616D466410084EB2E /* SDL_image.framework in CopyFiles */,
 				23C6156716D466410084EB2E /* SDL_mixer.framework in CopyFiles */,
+				234218FB16D5FBE60092FE14 /* SDL.framework in CopyFiles */,
 				23C6156016D465F70084EB2E /* SDL_ttf.framework in CopyFiles */,
-				23C6156116D465F70084EB2E /* SDL.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,6 +63,7 @@
 /* Begin PBXFileReference section */
 		2337F19816AF5800001C4F30 /* fake_lib1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fake_lib1.h; sourceTree = "<group>"; };
 		2337F19916AF5874001C4F30 /* fake_lib1.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = fake_lib1.cpp; sourceTree = "<group>"; };
+		234218F016D5F6CD0092FE14 /* SDL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL.framework; path = GUI_Showcase/gui/SDL.framework; sourceTree = "<group>"; };
 		235F4C1416B8F8FD000B145C /* Compatibility.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Compatibility.cpp; sourceTree = "<group>"; };
 		235F4C1516B8F8FD000B145C /* Compatibility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Compatibility.h; sourceTree = "<group>"; };
 		235F4C1616B8F8FD000B145C /* GameDisplay.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameDisplay.cpp; sourceTree = "<group>"; };
@@ -112,7 +113,6 @@
 		235F4C4216B8F8FD000B145C /* SDLMain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDLMain.m; sourceTree = "<group>"; };
 		23C6151616D2D15F0084EB2E /* GUIErrorHandling_Impl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GUIErrorHandling_Impl.h; sourceTree = "<group>"; };
 		23C6155C16D465E50084EB2E /* SDL_ttf.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL_ttf.framework; path = GUI_Showcase/gui/SDL_ttf.framework; sourceTree = "<group>"; };
-		23C6155D16D465E50084EB2E /* SDL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL.framework; path = GUI_Showcase/gui/SDL.framework; sourceTree = "<group>"; };
 		23C6156216D4663B0084EB2E /* SDL_image.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL_image.framework; path = GUI_Showcase/gui/SDL_image.framework; sourceTree = "<group>"; };
 		23C6156316D4663B0084EB2E /* SDL_mixer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL_mixer.framework; path = GUI_Showcase/gui/SDL_mixer.framework; sourceTree = "<group>"; };
 		23C6156916D4868D0084EB2E /* GUISpreadsheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GUISpreadsheet.h; sourceTree = "<group>"; };
@@ -132,9 +132,9 @@
 			files = (
 				23E37D2D16A75BD4006BBEB1 /* Cocoa.framework in Frameworks */,
 				23C6155E16D465E50084EB2E /* SDL_ttf.framework in Frameworks */,
-				23C6155F16D465E50084EB2E /* SDL.framework in Frameworks */,
 				23C6156416D4663B0084EB2E /* SDL_image.framework in Frameworks */,
 				23C6156516D4663B0084EB2E /* SDL_mixer.framework in Frameworks */,
+				234218F116D5F6CD0092FE14 /* SDL.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -161,8 +161,8 @@
 		23E37D2B16A75BD4006BBEB1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				234218F016D5F6CD0092FE14 /* SDL.framework */,
 				23C6155C16D465E50084EB2E /* SDL_ttf.framework */,
-				23C6155D16D465E50084EB2E /* SDL.framework */,
 				23C6156216D4663B0084EB2E /* SDL_image.framework */,
 				23C6156316D4663B0084EB2E /* SDL_mixer.framework */,
 				23E37D2C16A75BD4006BBEB1 /* Cocoa.framework */,
@@ -376,7 +376,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = usr/local/include;
-				LD_RUNPATH_SEARCH_PATHS = "@loader_path/Resources @loader_path/../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
@@ -399,7 +399,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = usr/local/include;
-				LD_RUNPATH_SEARCH_PATHS = "@loader_path/Resources @loader_path/../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				SDKROOT = macosx;
 			};

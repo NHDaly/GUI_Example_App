@@ -2,7 +2,7 @@
 CC = g++
 LD = g++
 
-CFLAGS = -c -Wall -fno-elide-constructors
+CFLAGS = -c -Wall -fno-elide-constructors -Igui/includes
 LFLAGS = -Wall -FResources/ -framework SDL -framework SDL_TTF -framework SDL_mixer -framework SDL_image -framework Cocoa -Wl,-rpath,@executable_path/Resources
 
 FRAMEWORK_FILES = gui/SDL.framework gui/SDL_ttf.framework gui/SDL_mixer.framework gui/SDL_image.framework
@@ -12,8 +12,8 @@ RESOURCES :=
 
 PROG = app
 
-PREXISTING_FRAMEWORKS =  $(wildcard /Library/Frameworks/SDL*.framework)
 PREXISTING_RESOURCE_FRAMEWORKS =  $(wildcard Resources/SDL*.framework)
+#PREXISTING_FRAMEWORKS =  $(wildcard /Library/Frameworks/SDL*.framework)
 
 OBJS = main.o fake_lib1.o
 
@@ -40,25 +40,24 @@ endif
 
 settup_frameworks: $(FRAMEWORK_FILES)
 	@echo "\nChecking Frameworks.."
-#ifneq ($(PREXISTING_FRAMEWORKS),)
 ifneq ($(PREXISTING_RESOURCE_FRAMEWORKS),)
 	@echo "Frameworks are already installed"
 else
 	@echo "Installing Frameworks to /Library/Frameworks"
 	cp -R -n $(FRAMEWORK_FILES) Resources
-#	cp -R -n $(FRAMEWORK_FILES) /Library/Frameworks
 endif
 	@echo ""
 
 
 
+# Separate this out into another make to get the updated .o files.
 program: 
 	@echo "\nBuilding Project."
-	cd . ; make program_impl;
+	@make linking;
 
 # Separate this out into another make to get the updated .o files.
-program_impl:  $(wildcard gui/*.o) $(OBJS)
-	@echo "Program impl."
+linking:  $(wildcard gui/*.o) $(OBJS)
+	@echo "\nLinking!"
 	$(LD) $(LFLAGS) $(wildcard gui/*.o) $(OBJS) -o $(PROG)
 
 main.o: main.cpp
