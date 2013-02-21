@@ -17,7 +17,7 @@ PREXISTING_RESOURCE_FRAMEWORKS =  $(wildcard Resources/SDL*.framework)
 
 OBJS = main.o fake_lib1.o
 
-default: gui_files settup program
+default: gui_files setup program
 	@echo "Done!"
 	@echo $(PROG)
 
@@ -25,10 +25,10 @@ gui_files:
 	@echo "Making GUI files."
 	cd gui;	make
 
-settup: settup_resources settup_frameworks
+setup: setup_resources setup_frameworks
 	
 
-settup_resources: 
+setup_resources: 
 	@echo "\nCopying Resource files."
 	mkdir -p Resources
 	cp -R gui/GUIImages Resources
@@ -38,7 +38,7 @@ ifneq ($(RESOURCES),)
 endif
 
 
-settup_frameworks: $(FRAMEWORK_FILES)
+setup_frameworks: $(FRAMEWORK_FILES)
 	@echo "\nChecking Frameworks.."
 ifneq ($(PREXISTING_RESOURCE_FRAMEWORKS),)
 	@echo "Frameworks are already installed"
