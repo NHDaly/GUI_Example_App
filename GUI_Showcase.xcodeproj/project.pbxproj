@@ -376,6 +376,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = usr/local/include;
+				LD_RUNPATH_SEARCH_PATHS = "@loader_path/Resources @loader_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
@@ -398,6 +399,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = usr/local/include;
+				LD_RUNPATH_SEARCH_PATHS = "@loader_path/Resources @loader_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				SDKROOT = macosx;
 			};
@@ -407,6 +409,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
+					"@loader_path/../Libraries",
 					"$(inherited)",
 					"\"$(SRCROOT)/GUI_Showcase/gui\"",
 				);
@@ -422,6 +425,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
+					"@loader_path/../Libraries",
 					"$(inherited)",
 					"\"$(SRCROOT)/GUI_Showcase/gui\"",
 				);
