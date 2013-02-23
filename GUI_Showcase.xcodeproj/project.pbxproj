@@ -75,7 +75,6 @@
 		235F4C1C16B8F8FD000B145C /* GUIButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GUIButton.h; sourceTree = "<group>"; };
 		235F4C1D16B8F8FD000B145C /* GUIController.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GUIController.cpp; sourceTree = "<group>"; };
 		235F4C1E16B8F8FD000B145C /* GUIController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GUIController.h; sourceTree = "<group>"; };
-		235F4C1F16B8F8FD000B145C /* GUIErrorHandling_old.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GUIErrorHandling_old.h; sourceTree = "<group>"; };
 		235F4C2016B8F8FD000B145C /* GUIErrorHandling.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GUIErrorHandling.h; sourceTree = "<group>"; };
 		235F4C2116B8F8FD000B145C /* GUIFonts */ = {isa = PBXFileReference; lastKnownFileType = folder; path = GUIFonts; sourceTree = "<group>"; };
 		235F4C2216B8F8FD000B145C /* GUIImage.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GUIImage.cpp; sourceTree = "<group>"; };
@@ -206,7 +205,6 @@
 				235F4C1C16B8F8FD000B145C /* GUIButton.h */,
 				235F4C1D16B8F8FD000B145C /* GUIController.cpp */,
 				235F4C1E16B8F8FD000B145C /* GUIController.h */,
-				235F4C1F16B8F8FD000B145C /* GUIErrorHandling_old.h */,
 				235F4C2016B8F8FD000B145C /* GUIErrorHandling.h */,
 				23C6151616D2D15F0084EB2E /* GUIErrorHandling_Impl.h */,
 				235F4C2116B8F8FD000B145C /* GUIFonts */,
@@ -370,7 +368,7 @@
 					"$(inherited)",
 				);
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_VERSION = "";
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
@@ -393,7 +391,7 @@
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_PREPROCESSOR_DEFINITIONS = "COMPILED_WITH_XCODE=1";
-				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_VERSION = "";
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
