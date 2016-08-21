@@ -2,7 +2,7 @@
 CC = g++
 LD = g++
 
-CFLAGS = -c -Wall -fno-elide-constructors -Igui/includes
+CFLAGS = -c -Wall -fno-elide-constructors -Igui/includes -std=c++11
 LFLAGS = -Wall -FResources/ -framework SDL -framework SDL_TTF -framework SDL_mixer -framework SDL_image -framework Cocoa -Wl,-rpath,@executable_path/Resources
 
 FRAMEWORK_FILES = gui/SDL.framework gui/SDL_ttf.framework gui/SDL_mixer.framework gui/SDL_image.framework

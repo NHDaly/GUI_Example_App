@@ -18,11 +18,9 @@
 #include <iostream>
 #include <cctype>
 #include <sstream>
-#include <tr1/functional>
+#include <functional>
 using namespace std;
-using tr1::bind;
-using namespace std::tr1;
-using namespace std::tr1::placeholders;
+using namespace std::placeholders;
 
 
 // Forward Declarations
