@@ -12,6 +12,10 @@
 #include "gui/GUIButton.h"
 #include "gui/GUITextViews.h"
 
+#ifdef __EMSCRIPTEN__
+#include <emscripten.h>
+#endif
+
 // This would be a library where the user doesn't have access to the code.
 #include "fake_lib1.h" 
 
@@ -32,6 +36,7 @@ string get_birthdate(string age);
 
 struct MyError;
 string get_msg(const MyError& e);
+string get_msg(const GUIError& e);
 string get_msg(const FakeLib1Error& e);
 string get_msg(const std::exception& e);
 
@@ -114,6 +119,9 @@ string get_msg(const MyError& e) {
 string get_msg(const FakeLib1Error& e) {
     return "Lib1 Error: " + e.error_msg;
 }
+string get_msg(const GUIError& e) {
+    return "GUI Error: " + e.msg;
+}
 string get_msg(const std::exception& e) {
     return "Error: " + string(e.what());
 }
@@ -144,11 +152,13 @@ private:
 // Create a few question forms, register error handlers, and run
 // The main exciting thing here is register_erorr_handlers, because
 // it allows you to use errors from a library whose code you cannot change.
-int main(int argc, char **argv) {
+extern "C" int main(int argc, char **argv) {
 
     initGUI();
 
     GUIWindow window(800,600);
+
+    try {
     
 // **** Create the Main View ***********
     SDL_Color bg = {0xcc, 0xcc, 0xcc};
@@ -157,7 +167,6 @@ int main(int argc, char **argv) {
     
     window.attach_subview(view, DispPoint(0,0));
 
-    
 // Create the Questions
     view->attach_subview(new EntryForm("Please enter your name: ", "Your name is: "),
                          DispPoint(15, 50));
@@ -174,7 +183,17 @@ int main(int argc, char **argv) {
     // In this case, both types of errors use the same Error Handler,
     // but that might not always be the case.
     GUIApp::get()->register_exception_handler<FakeLib1Error>(Display_Error(view));
-    GUIApp::get()->register_exception_handler<MyError>(Display_Error(view));
+    //GUIApp::get()->register_exception_handler<MyError>(Display_Error(view));
+
+  } catch(const GUIError& e) {
+      cout << "Caught GUIError: " << e.msg << endl;
+      cout << "Exiting." << endl;
+      throw;
+  } catch(const GUIProgramming_Error& e) {
+      cout << "Caught GUIProgrammingError: " << e.msg << endl;
+      cout << "Exiting." << endl;
+      throw;
+  }
 
 // Run!
     GUIApp::get()->run(&window);

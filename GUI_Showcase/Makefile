@@ -44,7 +44,7 @@ ifneq ($(PREXISTING_RESOURCE_FRAMEWORKS),)
 	@echo "Frameworks are already installed"
 else
 	@echo "Installing Frameworks to /Library/Frameworks"
-	cp -R -n $(FRAMEWORK_FILES) Resources
+	#cp -R -n $(FRAMEWORK_FILES) Resources
 endif
 	@echo ""
 
